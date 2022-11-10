@@ -3,7 +3,7 @@ import FormUsuario from './components/FormUsuario';
 
 function App() {
   return (
-  <div>
+  <div className="container">
     <FormUsuario></FormUsuario>
   </div>    
   );

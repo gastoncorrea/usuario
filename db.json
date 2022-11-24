@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "email": "gastoncorrea90e@gmail.com",
+      "apellido": "Correa",
+      "nombre": "Gaston",
+      "dni": "35195673",
+      "legajo": "48821",
+      "carrera": "1",
+      "id": 1
+    },
+    {
+      "email": "andrea-0@live.com.ar",
+      "apellido": "morales",
+      "nombre": "andrea carina",
+      "dni": "44764482",
+      "legajo": "44771",
+      "carrera": "3",
+      "id": 2
+    }
+  ]
+}

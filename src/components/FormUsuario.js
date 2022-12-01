@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FormUsuario = (props) => {
-  const URL = "http://localhost:3004/usuarios";
+  const URL = "http://localhost:3004/usuarios/";
+  const navigate = useNavigate();
+  const params = useParams();
   const [email, setEmail] = useState("");
   const [apellido, setApellido] = useState("");
   const [nombre, setNombre] = useState("");
@@ -16,19 +19,31 @@ const FormUsuario = (props) => {
   useEffect(()=>{
     if( props.editar){
       cargarUnUsuario();
-      console.log("Use effect")
+      console.log("Use effect"+props.editar);
     };
-  })
+  },[props.editar])
 
   const guardarUnUsuario = async (usuario, ruta) => {
     const resp = await axios.post(ruta, usuario);
     console.log(resp);
     if (resp.status === 201) {
       alert("Usuario creado correctamente");
+      navigate("/");
     } else {
       alert("Error en el servidor");
     }
   };
+
+  const editarUsuario = async (usuario,ruta, id)=>{
+    const resp = await axios.put(ruta+id, usuario);
+    console.log(resp);
+    if(resp.status === 200){
+      alert("usuario Modificado correctamente");
+      navigate("/");
+    }else{
+      alert("Error al modificar el estudiante");
+    }
+  }
 
   const cargarUnUsuario = () => {
     setNombreBoton("Editar");
@@ -41,6 +56,7 @@ const FormUsuario = (props) => {
     setCarrera(props.editarUsuarioForm.carrera);
   };
 
+
   const limpiarForm = ()=>{
     setEmail("");
     setApellido("");
@@ -52,9 +68,6 @@ const FormUsuario = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if(props.editar){
-      
-    }
     const form = {
       email: email,
       apellido: apellido,
@@ -64,9 +77,12 @@ const FormUsuario = (props) => {
       carrera: carrera,
     };
     console.log(form);
-
-    guardarUnUsuario(form, URL);
-    props.setCargar(!props.cargar);
+    if(props.editar){
+      editarUsuario(form,URL,params.id);
+    }else{
+      guardarUnUsuario(form, URL);
+      props.setCargar(!props.cargar);
+    }
     limpiarForm();
   };
 

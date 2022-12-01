@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import UsuarioItem from "./UsuarioItem";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const TablaUsuario = (props) => {
   const URL = "http://localhost:3004/usuarios/";
+  const navigate = useNavigate();
   const [listaUsuario, setListaUsuario] = useState([{}]);
 
   useEffect(() => {
@@ -19,9 +21,18 @@ const TablaUsuario = (props) => {
     setListaUsuario(listaDatos);
   };
 
+  const agregarUsuario = ()=>{
+    props.setEditar(false);
+    navigate("/form");
+  }
+
   return (
-    <div className="col-xs-12 col-lg-8 mx-auto shadow py-3 border-radius">
-      <table className="table mx-auto">
+  <div className="container">
+    <div className="d-flex justify-content-between my-3">
+      <h2 className="text-primary titulo p-2">Lista de estudiantes</h2>
+      <button className="btn btn-outline-primary" onClick={agregarUsuario}>Agregar estudiante</button>
+    </div>
+    <table className="table p-3 border-radius shadow my-3">
         <thead>
           <tr>
             <th scope="col">Legajo</th>
@@ -29,6 +40,7 @@ const TablaUsuario = (props) => {
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
             <th scope="col">Carrera</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -39,13 +51,14 @@ const TablaUsuario = (props) => {
                     usuario={usuario}
                     mostrarDatos={mostrarDatos}
                     editarForm = {props.editarForm}
+                    key={usuario.id}
                   ></UsuarioItem>
                 );
               })
             : null}
         </tbody>
       </table>
-    </div>
+  </div>
   );
 };
 

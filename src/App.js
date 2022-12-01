@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import FormUsuario from "./components/FormUsuario";
 import TablaUsuario from "./components/TablaUsuario";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [editarUsuarioForm, setEditarUsuarioForm] = useState({});
@@ -15,15 +16,43 @@ function App() {
     console.log(editarUsuarioForm);
   };
   return (
-    <div className="container">
-      <FormUsuario
-        editarUsuarioForm={editarUsuarioForm}
-        editar={editar}
-        cargar={cargar}
-        setCargar={setCargar}
-      ></FormUsuario>
-      <TablaUsuario editarForm={editarForm} cargar={cargar}></TablaUsuario>
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <TablaUsuario
+                editarForm={editarForm}
+                cargar={cargar}
+                setEditar={setEditar}
+                className="row"
+              ></TablaUsuario>
+            }
+          />
+          <Route
+            path="/form"
+            element={
+              <FormUsuario
+                editarUsuarioForm={editarUsuarioForm}
+                editar={editar}
+                cargar={cargar}
+                setCargar={setCargar}
+              />
+            }
+          />
+          <Route
+            path="/form/:id"
+            element={
+              <FormUsuario
+                editarUsuarioForm={editarUsuarioForm}
+                editar={editar}
+                cargar={cargar}
+                setCargar={setCargar}
+              />
+            }
+          />
+        </Routes>
+    </BrowserRouter>
   );
 }
 

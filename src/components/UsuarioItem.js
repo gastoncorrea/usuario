@@ -2,11 +2,15 @@ import React from "react";
 import { faUserEdit, faUserTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Iconos from "./Iconos";
+import { useNavigate } from "react-router-dom";
 
 const UsuarioItem = (props) => {
   const URL = "http://localhost:3004/usuarios/";
-  const editarUsuario = (id) => {
+  const navigate = useNavigate();
+
+  const editarUsuario = () => {
    props.editarForm(props.usuario);
+   navigate("/form/"+props.usuario.id);
   };
 
   const eliminarUsuario = async () => {
@@ -21,12 +25,12 @@ const UsuarioItem = (props) => {
   };
   return (
     <tr key={props.usuario.id}>
-      <th scope="row">{props.usuario.legajo}</th>
-      <td>{props.usuario.apellido}</td>
-      <td>{props.usuario.nombre}</td>
-      <td>{props.usuario.email}</td>
-      <td>{props.usuario.carrera}</td>
-      <td className="d-flex justify-content-between">
+      <th scope="row" >{props.usuario.legajo}</th>
+      <td >{props.usuario.apellido}</td>
+      <td >{props.usuario.nombre}</td>
+      <td >{props.usuario.email}</td>
+      <td >{props.usuario.carrera}</td>
+      <td>
         <button onClick={editarUsuario} className="btn">
           <Iconos icon={faUserEdit} css="icon" />
         </button>

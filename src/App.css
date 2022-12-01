@@ -1,7 +1,16 @@
-.dimension-dimension-primerBloque{
-    width: 35%;
+.dimension-dimension-primerBloque {
+  width: 35%;
 }
 
-.dimension-segundoBloque{
-    width: 65%;
+.dimension-segundoBloque {
+  width: 65%;
+}
+
+.titulo{
+  font-family: "Bebas Neue", cursive;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.color{
+  color: #fff;
 }

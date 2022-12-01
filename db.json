@@ -10,13 +10,58 @@
       "id": 1
     },
     {
-      "email": "andrea-0@live.com.ar",
-      "apellido": "morales",
-      "nombre": "andrea carina",
-      "dni": "44764482",
-      "legajo": "44771",
+      "email": "juan@gmail.com",
+      "apellido": "Correa",
+      "nombre": "juan",
+      "dni": "23534543",
+      "legajo": "331111",
       "carrera": "3",
       "id": 2
+    },
+    {
+      "email": "luana@gmail.com",
+      "apellido": "Correa Morales",
+      "nombre": "Luana",
+      "dni": "54767231",
+      "legajo": "792382",
+      "carrera": "1",
+      "id": 3
+    },
+    {
+      "email": "juan@gmail.com",
+      "apellido": "Correa",
+      "nombre": "Juan",
+      "dni": "23534543",
+      "legajo": "331111",
+      "carrera": "3",
+      "id": 4
+    },
+    {
+      "email": "eliana@gmail.com",
+      "apellido": "Correa",
+      "nombre": "Eliana",
+      "dni": "23234",
+      "legajo": "111111",
+      "carrera": "3",
+      "id": 5
+    },
+    {
+      "email": "nadia@gmail.com",
+      "apellido": "Correa",
+      "nombre": "Nadia",
+      "dni": "234234",
+      "legajo": "23432",
+      "carrera": "3",
+      "id": 6
+    },
+    {
+      "email": "rosa@gmail.com",
+      "apellido": "Correa",
+      "nombre": "Rosa",
+      "dni": "234234",
+      "legajo": "23423",
+      "carrera": "2",
+      "id": 7
     }
   ]
 }

@@ -49,19 +49,10 @@
       "email": "nadia@gmail.com",
       "apellido": "Correa",
       "nombre": "Nadia",
-      "dni": "234234",
+      "dni": "2111111",
       "legajo": "23432",
       "carrera": "3",
       "id": 6
-    },
-    {
-      "email": "rosa@gmail.com",
-      "apellido": "Correa",
-      "nombre": "Rosa",
-      "dni": "234234",
-      "legajo": "23423",
-      "carrera": "2",
-      "id": 7
     }
   ]
 }
